@@ -69,11 +69,20 @@ export default function Header() {
                     >
                         <X className="w-7 h-7" />
                     </button>
-
-                    <Link to="/" onClick={() => setIsOpen(false)} className="hover:underline">Dashboard</Link>
-                    <Link to="/open-ticket" onClick={() => setIsOpen(false)} className="hover:underline">Open Ticket</Link>
-                    <Link to="/check-status" onClick={() => setIsOpen(false)} className="hover:underline">Check Status</Link>
-                    <Link to="/login" onClick={() => setIsOpen(false)} className="hover:underline">Login</Link>
+                    {agent ? (
+                        <>
+                            <Link to="/agent-dashboard" onClick={() => setIsOpen(false)} className="hover:underline">Tickets</Link>
+                            <button onClick={handleLogout} className="hover:underline text-red-300">
+                                Logout
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/open-ticket" onClick={() => setIsOpen(false)} className="hover:underline">Open Ticket</Link>
+                            <Link to="/check-status" onClick={() => setIsOpen(false)} className="hover:underline">Check Status</Link>
+                            <Link to="/login" onClick={() => setIsOpen(false)} className="hover:underline">Agent Login</Link>
+                        </>
+                    )}
                 </div>
             )}
         </header>

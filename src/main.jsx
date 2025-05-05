@@ -5,10 +5,7 @@ import { AuthProvider } from './context/AuthContext';
 import App from './App';
 import './index.css';
 
-// ✅ Set the base URL from .env
-axios.defaults.baseURL = import.meta.env.TICKETS_API_BASE_URL;
-
-// Optional: set default Accept header
+axios.defaults.baseURL = import.meta.env.VITE_TICKETS_API_BASE_URL;
 axios.defaults.headers.common['Accept'] = 'application/json';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
